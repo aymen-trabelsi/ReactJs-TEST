@@ -1,0 +1,27 @@
+@mixin media($size) {
+    @if $size == xs-device {
+      @media (max-width: 340px) {
+        @content;
+      }
+    } @else if $size == s-device {
+      @media (max-width: 600px) {
+        @content;
+      }
+    } @else if $size == m-device {
+      @media (max-width: 874px) {
+        @content;
+      }
+    } @else if $size == l-device {
+      @media (min-width: 875px) {
+        @content;
+      }
+    } @else if $size == xl-device {
+      @media (min-width: 1200px) {
+        @content;
+      }
+    } @else if $size == ie {
+      @media only screen and (min-width:0\0) {
+        @content
+      }
+    }
+  }
