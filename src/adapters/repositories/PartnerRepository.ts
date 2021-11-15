@@ -1,19 +1,27 @@
-import { IPartnerData, IPartnerEntity } from '@domains/entities/interfaces/iPartner'
-import Partner from '@domains/entities/Partner'
-import { axiosClient } from '@services/Http'
-import { IPartnerRepository } from './interfaces/iPartnerRepository'
+import { IHttp } from "@adapters/infrastructures/interfaces/iHttp";
+import {
+  IPartnerData,
+  IPartnerEntity,
+} from "@domains/entities/interfaces/iPartner";
+import Partner from "@domains/entities/Partner";
+import { IPartnerRepository } from "./interfaces/iPartnerRepository";
 
 class PartnerRepository implements IPartnerRepository {
+  constructor(readonly http: IHttp) {}
 
   async getPartners(): Promise<Array<IPartnerEntity>> {
-    const response = await axiosClient.get("https://preprod.lepotcommuntest.fr/undefined/partners")
+    const response = await this.http.request({
+      method: "GET",
+      url: "https://www.lepotcommun.fr/undefined/partners",
+    });
 
-    if(response?.data) {
-      return response.data.partners.map((partner: IPartnerData) => new Partner(partner))
+    if (response?.partners) {
+      return response.partners.map(
+        (partner: IPartnerData) => new Partner(partner)
+      );
     }
     return [];
   }
-
 }
 
-export default PartnerRepository
+export default PartnerRepository;

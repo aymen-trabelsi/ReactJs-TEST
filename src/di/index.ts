@@ -2,8 +2,10 @@ import IPresenters from './interfaces/iPresenters'
 import repositories from './repositories'
 import customUseCases from './useCases'
 import presenters from './presenters'
+import infrastructures from './infrastructures'
 
-const cRepositorires = repositories()
+const cInfrastructures = infrastructures()
+const cRepositorires = repositories(cInfrastructures)
 const cUseCases = customUseCases(cRepositorires)
 const cPresenters = presenters(cUseCases)
 
