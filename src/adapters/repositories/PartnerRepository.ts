@@ -1,7 +1,7 @@
 import { IPartnerData, IPartnerEntity } from '@domains/entities/interfaces/iPartner'
 import Partner from '@domains/entities/Partner'
 import { axiosClient } from '@services/Http'
-import { IPartnerRepository } from './interfaces/IPartnerRepository'
+import { IPartnerRepository } from './interfaces/iPartnerRepository'
 
 class PartnerRepository implements IPartnerRepository {
 

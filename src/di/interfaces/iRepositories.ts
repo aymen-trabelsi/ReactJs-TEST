@@ -1,5 +1,7 @@
-import { IPartnerRepository } from '@adapters/repositories/interfaces/IPartnerRepository';
+import { IPartnerCategoryRepository } from "@adapters/repositories/interfaces/iPartnerCategoryRepository";
+import { IPartnerRepository } from "@adapters/repositories/interfaces/iPartnerRepository";
 
 export default interface IRepositories {
-  partner: IPartnerRepository
+  partner: IPartnerRepository;
+  partnerCategory: IPartnerCategoryRepository;
 }

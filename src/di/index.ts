@@ -9,4 +9,5 @@ const cPresenters = presenters(cUseCases)
 
 export default {
   partner: cPresenters.partner,
+  partnerCategory: cPresenters.partnerCategory
 } as IPresenters

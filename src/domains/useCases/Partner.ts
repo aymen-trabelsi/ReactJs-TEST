@@ -1,12 +1,12 @@
-import { IPartnerUseCase } from "./interfaces/IPartnerUseCase";
-import { IPartnerRepository } from "adapters/repositories/interfaces/IPartnerRepository";
+import { IPartnerUseCase } from "./interfaces/iPartnerUseCase";
+import { IPartnerRepository } from "@adapters/repositories/interfaces/iPartnerRepository";
 import { IPartnerEntity } from "@domains/entities/interfaces/iPartner";
 
 class PartnerUseCase implements IPartnerUseCase {
-  constructor(private readonly boardRepo: IPartnerRepository) {}
+  constructor(private readonly partnerRepo: IPartnerRepository) {}
 
   async getPartners(): Promise<Array<IPartnerEntity>> {
-    const partnersList = await this.boardRepo.getPartners();
+    const partnersList = await this.partnerRepo.getPartners();
 
     return partnersList;
   }

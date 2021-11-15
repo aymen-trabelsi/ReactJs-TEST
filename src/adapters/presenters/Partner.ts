@@ -1,6 +1,6 @@
 import { IPartnerEntity } from '@domains/entities/interfaces/iPartner'
-import { IPartnerUseCase } from '@domains/useCases/interfaces/IPartnerUseCase'
-import { IPartnerPresenter } from './interfaces/IPartner'
+import { IPartnerUseCase } from '@domains/useCases/interfaces/iPartnerUseCase'
+import { IPartnerPresenter } from './interfaces/iPartner'
 
 class PartnerPresenter implements IPartnerPresenter {
 
