@@ -12,7 +12,7 @@ class PartnerRepository implements IPartnerRepository {
   async getPartners(): Promise<Array<IPartnerEntity>> {
     const response = await this.http.request({
       method: "GET",
-      url: "https://www.lepotcommun.fr/undefined/partners",
+      url: "https://recette2.lepotcommuntest.fr/undefined/partners",
     });
 
     if (response?.partners) {

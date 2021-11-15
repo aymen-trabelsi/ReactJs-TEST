@@ -11,7 +11,7 @@ class PartnerCategoryRepository implements IPartnerCategoryRepository {
 
     const response = await this.http.request({
       method: "GET",
-      url: "https://www.lepotcommun.fr/partnersCategories",
+      url: "https://recette2.lepotcommuntest.fr/partnersCategories",
     });
 
     if(response) {
