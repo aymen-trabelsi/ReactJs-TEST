@@ -1,0 +1,10 @@
+@import "/src/styles/variables";
+
+.pageHeader {
+  background-color: $secondary;
+  color: $white;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

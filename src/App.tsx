@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './styles/global.scss';
 import di from './di';
+import PageHeader from '@components/pageHeader';
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
 
   return (
     <div className="App">
+      <PageHeader />
     </div>
   );
 }
