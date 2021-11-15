@@ -1,5 +1,5 @@
 import { IPartnerEntity } from '@domains/entities/interfaces/iPartner';
 
-export interface IPartnerUseCase {
+export interface IPartnerPresenter {
   getPartners(): Promise<Array<IPartnerEntity>>
 }
