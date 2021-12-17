@@ -2,6 +2,7 @@ import {
   IPartnerEntity,
   IPartnerData,
 } from "@domains/entities/interfaces/iPartner";
+import { IPartnerCategoryData } from "./interfaces/iPartnerCategory";
 
 class Partner implements IPartnerEntity {
   private readonly _id: number;
@@ -11,6 +12,7 @@ class Partner implements IPartnerEntity {
   private readonly _imageUrl: string;
   private readonly _mobileImageUrl: string;
   private readonly _url: string;
+  private readonly _partnerCategories: IPartnerCategoryData;
 
   constructor(params: IPartnerData) {
     this._id = params.partnerID;
@@ -20,6 +22,7 @@ class Partner implements IPartnerEntity {
     this._mobileImageUrl = params.mobileImageUrlPAR;
     this._imageUrl = params.imageUrlPAR;
     this._url = params.urlPAR;
+    this._partnerCategories = params.partnerCategories;
   }
 
   get id() {
@@ -48,6 +51,10 @@ class Partner implements IPartnerEntity {
 
   get url() {
     return this._url;
+  }
+
+  get partnerCategories() {
+    return this._partnerCategories;
   }
 }
 
