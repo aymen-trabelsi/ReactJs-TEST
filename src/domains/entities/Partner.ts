@@ -13,6 +13,7 @@ class Partner implements IPartnerEntity {
   private readonly _mobileImageUrl: string;
   private readonly _url: string;
   private readonly _partnerCategories: IPartnerCategoryData;
+  private readonly _backgroundUrl : string;
 
   constructor(params: IPartnerData) {
     this._id = params.partnerID;
@@ -23,6 +24,7 @@ class Partner implements IPartnerEntity {
     this._imageUrl = params.imageUrlPAR;
     this._url = params.urlPAR;
     this._partnerCategories = params.partnerCategories;
+    this._backgroundUrl = params.backgroundUrlPAR;
   }
 
   get id() {
@@ -55,6 +57,10 @@ class Partner implements IPartnerEntity {
 
   get partnerCategories() {
     return this._partnerCategories;
+  }
+
+  get backgroundUrl(){
+    return this._backgroundUrl;
   }
 }
 

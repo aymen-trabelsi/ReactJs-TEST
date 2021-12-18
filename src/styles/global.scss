@@ -2,7 +2,17 @@
 @import "variables";
 
 .App {
+  width: 100vw;
   text-align: center;
-  background-color: $background-grey;
-  min-height: 100vh;
+}
+
+
+.container {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.item {
 }
