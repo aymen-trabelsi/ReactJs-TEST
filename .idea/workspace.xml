@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71ac50a9-9201-4b3a-8ef2-33e2691c333f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/loading.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/loading.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/card/_card.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/_card.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/card/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/index.tsx" afterDir="false" />
@@ -11,10 +11,7 @@
       <change beforePath="$PROJECT_DIR$/src/components/filterCard/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/filterCard/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pageHeader/_pageHeader.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageHeader/_pageHeader.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pageHeader/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageHeader/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domains/entities/Partner.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domains/entities/Partner.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domains/entities/interfaces/iPartner.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domains/entities/interfaces/iPartner.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +29,13 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/aymen-trabelsi/ReactJs-TEST" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectId" id="22QYjCVpGulraWEa3AKx0xJn4y3" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -43,7 +47,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../React Projects/CaissePim/CaissePim" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../IdeaProjects/E-commerce-Back" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
@@ -51,19 +55,6 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\atrab\OneDrive\Documents\GitHub\test-lepotcommun\src" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -135,5 +126,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

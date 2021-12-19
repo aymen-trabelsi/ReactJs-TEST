@@ -2,17 +2,26 @@
 @import "variables";
 
 .App {
-  width: 100vw;
+  margin: auto;
+  width: 65vw;
   text-align: center;
 }
 
 
-.container {
+.flex-container {
   display: flex;
-  flex-flow: wrap;
-  justify-content: space-around;
-  list-style: none;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
-.item {
+.flex-item {
+  padding: 1vh;
+  margin-top: 1vh;
+  font-weight: bold;
+  font-size: 0em;
+  text-align: center;
+}
+
+.loading{
+  margin-top: 30vh;
 }

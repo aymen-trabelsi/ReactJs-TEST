@@ -1,10 +1,33 @@
-import React from "react";
+import React, {useState} from "react";
 import css from "./_filterCard.module.scss";
 
 const FilterCard  = (props) => {
-  return <div   className={css.filterCard}>
-    &nbsp;&nbsp;{props.text}&nbsp;&nbsp;
-  </div>;
+
+    const [clicked , setClicked] = useState(false)
+
+    function Filter(e){
+        if (!clicked){
+            setClicked(true);
+            props.addToFilter(e.target.id);
+        }else {
+            setClicked(false);
+            props.removeFromFilter(e.target.id);
+        }
+
+    }
+
+    const color = {
+        backgroundColor: "#e22b76",
+        color: "white",
+        border: "solid 0.5px #e22b76"
+    }
+
+  return  <div onClick={Filter}>
+              {clicked ? <input type="button" id={props.id} style={color}  className={css.filterCard} value={ "  "+props.text+"  "  } />
+              :
+              <input type="button" id={props.id}  className={css.filterCard} value={ "  "+props.text+"  "  } />
+              }
+          </div>
 };
 
 export default FilterCard;
