@@ -12,16 +12,32 @@ const FilterCard  = (props) => {
         }else {
             setClicked(false);
             props.removeFromFilter(e.target.id);
-        } 
+        }
     }
 
-    useEffect(() => {
-        (JSON.parse(localStorage.getItem('filtres'))).map(id => {
-            if (id === props.id){
-                setClicked(true)
+    useEffect(()=> {
+        let exist : boolean = false;
+        props.filters.map(id => {
+            if (id == props.id){
+                exist = true;
             }
         })
-    })
+        if(exist) setClicked(true)
+        else setClicked(false)
+
+    },[props])
+
+    useEffect(() => {
+        if(localStorage.getItem('filtres')){
+            let oldFilters: number[] = [];
+            JSON.parse(localStorage.getItem('filtres')).map(id => {
+                oldFilters.push(parseInt(id))
+            })
+            oldFilters.map(id => {
+                if (props.id === id) setClicked(true)
+            })
+        }
+    },[])
 
     const color = {
         backgroundColor: "#e22b76",
@@ -30,9 +46,18 @@ const FilterCard  = (props) => {
     }
 
   return  <div onClick={Filter}>
-              {clicked ? <input type="button" id={props.id} style={color}  className={css.filterCard} value={ "  "+props.text+"  "  } />
-              :
-              <input type="button" id={props.id}  className={css.filterCard} value={ "  "+props.text+"  "  } />
+              {
+                  clicked   ?
+                            <input type="button"
+                                   id={props.id}
+                                   style={color}
+                                   className={css.filterCard}
+                                   value={ "  "+props.text+"  "  } />
+                            :
+                            <input type="button"
+                                   id={props.id}
+                                   className={css.filterCard}
+                                   value={ "  "+props.text+"  "  } />
               }
           </div>
 };

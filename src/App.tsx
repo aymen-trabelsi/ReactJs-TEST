@@ -19,49 +19,58 @@ function App() {
 
     function handleAdd (id : number) {
         if (id==0){
-            setFilter([]);
-        }else {
-            var newflt =  filtre.filter (element => {
-                return element !== id
+            let newflt =  filtre.filter (element => {
+                return (element === id)
             })
             newflt.push(id);
             setFilter(newflt);
             localStorage.setItem('filtres',  JSON.stringify(newflt));
+        }else {
+            if(filtre[0] == 0 ){
+                console.log([id])
+                setFilter([id]);
+                localStorage.setItem('filtres',  JSON.stringify([id]));
+            }else {
+                var newflt = filtre.filter(element => {
+                    return (element !== 0)
+                })
+                newflt.push(id);
+                console.log(newflt)
+                setFilter(newflt);
+                localStorage.setItem('filtres', JSON.stringify(newflt));
+            }
         }
     }
 
     function handleRemove (id : number) {
         var newflt =  filtre.filter (element => {
-            return element !== id
+            return element != id
         })
         setFilter(newflt);
         localStorage.setItem('filtres', JSON.stringify(newflt));
     }
 
     useEffect(() => {
-            if(filtre.length === 0){
+        if(filtre.length === 0){
                 setFiltredPartners(partners);
-            }else {
-                var filtred : Partner [] = [];
-                partners.map(partner => {
-                          partner.partnerCategories.map(category => {
-                                filtre.map(id => {
-                                        if (id == category.partnerCategoryID){
-                                            filtred.push(partner)
-                                        }
-                                    })
-                                })
+        }else {
+            var filtred : Partner [] = [];
+            partners.map(partner => {
+                partner.partnerCategories.map(category => {
+                    filtre.map(id => {
+                        if ((id == category.partnerCategoryID)||(id == 0)){
+                            filtred.push(partner)
+                        }
+                    })
                 })
-                filtred = Array.from(new Set(filtred));
-                console.log(filtred)
-                setFiltredPartners(filtred)
-            }
+            })
+            filtred = Array.from(new Set(filtred));
+            setFiltredPartners(filtred)
+        }
     }, [filtre]);
 
 
     useEffect(() => {
-        // @ts-ignore
-        setFilter(JSON.parse(localStorage.getItem('filtres')));
         var categories  : PartnerCategory [] = [];
         var parteners   : Partner [] = [];
 
@@ -97,7 +106,33 @@ function App() {
                 parteners.push(ins);
             })
             setPloades(true);
-            setPartners(parteners)
+            setPartners(parteners);
+
+            if(localStorage.getItem('filtres')){
+                let oldFilters: number[] = [];
+                // @ts-ignore
+                JSON.parse(localStorage.getItem('filtres')).map(id => {
+                    oldFilters.push(parseInt(id))
+                })
+                if(oldFilters.length === 0){
+                    setFiltredPartners(parteners);
+                }else {
+                    var filtred : Partner [] = [];
+                    parteners.map(partner => {
+                        partner.partnerCategories.map(category => {
+                            oldFilters.map((id : number) => {
+                                if (category.partnerCategoryID === (id)){
+                                    filtred.push(partner)
+                                }
+                            })
+                        })
+                    })
+                    filtred = Array.from(new Set(filtred));
+                    setFilter(oldFilters);
+                    setFiltredPartners(filtred);
+                }
+            }
+            setFiltredPartners(parteners);
         })
     }, [])
 
@@ -108,11 +143,13 @@ function App() {
                 {   !Cloaded    ?
                     <PageHeader addFilter={(id: number) => {handleAdd(id);}}
                                 removeFilter={(id: number) => {handleRemove(id);}}
-                                loaded={true} categries={categries} />
+                                loaded={true} categries={categries}
+                                filters={filtre} />
                             :
                     <PageHeader addFilter={(id: number) => {handleAdd(id);}}
                                 removeFilter={(id: number) => {handleRemove(id);}}
-                                loaded={false} categries={categries} />
+                                loaded={false} categries={categries}
+                                filters={filtre} />
                 }
                 <div>
                 {   !Ploaded    ?

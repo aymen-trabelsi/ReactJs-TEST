@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71ac50a9-9201-4b3a-8ef2-33e2691c333f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/card/_card.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/_card.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/card/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/filterCard/_filterCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/filterCard/_filterCard.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/filterCard/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/filterCard/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pageHeader/_pageHeader.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageHeader/_pageHeader.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domains/entities/Partner.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domains/entities/Partner.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domains/entities/interfaces/iPartner.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domains/entities/interfaces/iPartner.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pageHeader/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageHeader/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +55,21 @@
       <recent name="C:\Users\atrab\OneDrive\Documents\GitHub\ReactJs-TEST\src\styles" />
       <recent name="C:\Users\atrab\OneDrive\Documents\GitHub\test-lepotcommun\src" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

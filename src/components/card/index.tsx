@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Partner from "@domains/entities/Partner";
 import css from './_card.module.scss'
-import go from '../../styles/go.png'
 
 const Card = (props: {partner : Partner}) => {
 
@@ -13,16 +12,14 @@ const Card = (props: {partner : Partner}) => {
         marginRight : "4px",
         backgroundImage: 'url(' + url + props.partner.backgroundUrl + ')',
         width : "33vw",
-        height : "27vh",
+        height : "22vh",
         backgroundSize : "cover",
         backgroundPosition : "center",
-        backgroundRepeat : "no-repeat",
-
+        backgroundRepeat : "no-repeat"
     }
     const contentCard  = {
-        marginTop : "4vh",
+        marginTop : "3vh",
         marginLeft : "2vh"
-
     }
 
 
@@ -34,10 +31,8 @@ const Card = (props: {partner : Partner}) => {
 
         <div style={cardStyle} className={css.parent}>
         { ! showParams ?
-                        <div  onMouseEnter={show} onMouseLeave={hide}>
-                            <div>
+                        <div className={css.initialCard} onMouseEnter={show} onMouseLeave={hide}>
                             <img alt={props.partner.name} className={css.logoStyle} src={url + props.partner.logoUrl}/>
-                            </div>
                           </div>
                         :
                         <div className={css.card}  onMouseEnter={show} onMouseLeave={hide}>
@@ -56,5 +51,4 @@ const Card = (props: {partner : Partner}) => {
         </div>
      )
 }
-
 export default Card;

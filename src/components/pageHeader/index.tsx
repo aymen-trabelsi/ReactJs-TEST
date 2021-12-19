@@ -5,9 +5,11 @@ import image from "../../styles/loading.svg";
 import PartnerCategory from "@domains/entities/PartnerCategory";
 
 
-const PageHeader = (props: { addFilter : Function; removeFilter : Function; loaded: boolean; categries: PartnerCategory[]; }) => {
-
-
+const PageHeader = (props: { addFilter : Function;
+                             removeFilter : Function;
+                             loaded: boolean;
+                             categries: PartnerCategory[];
+                             filters : number[]; }) => {
     return (
       <div className={css.pageHeader}>
           {props.loaded ?
@@ -18,7 +20,8 @@ const PageHeader = (props: { addFilter : Function; removeFilter : Function; load
                       <div className="flex-item" key={categrie.nameKey}>
                           <FilterCard addToFilter={(id: number) => {props.addFilter(id);}}
                                       removeFromFilter={(id: number) => {props.removeFilter(id);}}
-                                      id={categrie.id} text={categrie.name}/>
+                                      id={categrie.id} text={categrie.name}
+                                      filters={props.filters}/>
                       </div>
                       )
                   )

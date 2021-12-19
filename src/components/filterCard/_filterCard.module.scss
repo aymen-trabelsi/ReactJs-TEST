@@ -1,18 +1,16 @@
 .filterCard {
   position: relative;
-  font-size: 2.2vh;
+  font-size: 2vh;
   font-weight: normal ;
   display: inline-block;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  padding: 3px;
+  padding: 2px;
   background-color: white;
-  border-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
   border: solid 0.5px black;
-
-
 }
 
 .filterCard:hover {
