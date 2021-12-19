@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import css from "./_filterCard.module.scss";
 
 const FilterCard  = (props) => {
@@ -12,9 +12,16 @@ const FilterCard  = (props) => {
         }else {
             setClicked(false);
             props.removeFromFilter(e.target.id);
-        }
-
+        } 
     }
+
+    useEffect(() => {
+        (JSON.parse(localStorage.getItem('filtres'))).map(id => {
+            if (id === props.id){
+                setClicked(true)
+            }
+        })
+    })
 
     const color = {
         backgroundColor: "#e22b76",

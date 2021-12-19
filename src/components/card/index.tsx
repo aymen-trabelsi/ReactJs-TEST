@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Partner from "@domains/entities/Partner";
 import css from './_card.module.scss'
+import go from '../../styles/go.png'
 
 const Card = (props: {partner : Partner}) => {
 
@@ -13,6 +14,9 @@ const Card = (props: {partner : Partner}) => {
         backgroundImage: 'url(' + url + props.partner.backgroundUrl + ')',
         width : "33vw",
         height : "27vh",
+        backgroundSize : "cover",
+        backgroundPosition : "center",
+        backgroundRepeat : "no-repeat",
 
     }
     const contentCard  = {
@@ -43,7 +47,7 @@ const Card = (props: {partner : Partner}) => {
                                 <div className="col-md-8" >
                                     <p className={css.text}>{props.partner.desc}</p>
                                     <a target="_blank" rel="noreferrer" href={props.partner.url}>
-                                        <button className={css.button} > Choisir  </button>
+                                        <button className={css.button} > Choisir    </button>
                                     </a>
                                 </div>
                              </div>

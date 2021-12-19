@@ -10,43 +10,71 @@ import di from './di';
 function App() {
 
 
-    const [partners, setPartners]   = useState<Partner[]>([]);
+    const [partners, setPartners]                 = useState<Partner[]>([]);
     const [filtredPartners, setFiltredPartners]   = useState<Partner[]>([]);
-    const [categries, setCategries] = useState<PartnerCategory[]>([]);
+    const [categries, setCategries]               = useState<PartnerCategory[]>([]);
+    const [filtre, setFilter]   = useState<number[]>([]);
     const [Ploaded, setPloades] = useState<boolean>(false);
     const [Cloaded, setCloades] = useState<boolean>(false);
 
-
-    const [filtre, setFilter] = useState<number[]>([]);
-
     function handleAdd (id : number) {
-        var newflt =  filtre.filter (element => {
-            return element !== id
-        })
-        newflt.push(id);
-        setFilter(newflt);
+        if (id==0){
+            setFilter([]);
+        }else {
+            var newflt =  filtre.filter (element => {
+                return element !== id
+            })
+            newflt.push(id);
+            setFilter(newflt);
+            localStorage.setItem('filtres',  JSON.stringify(newflt));
+        }
     }
+
     function handleRemove (id : number) {
         var newflt =  filtre.filter (element => {
             return element !== id
         })
         setFilter(newflt);
+        localStorage.setItem('filtres', JSON.stringify(newflt));
     }
+
     useEffect(() => {
             if(filtre.length === 0){
                 setFiltredPartners(partners);
+            }else {
+                var filtred : Partner [] = [];
+                partners.map(partner => {
+                          partner.partnerCategories.map(category => {
+                                filtre.map(id => {
+                                        if (id == category.partnerCategoryID){
+                                            filtred.push(partner)
+                                        }
+                                    })
+                                })
+                })
+                filtred = Array.from(new Set(filtred));
+                console.log(filtred)
+                setFiltredPartners(filtred)
             }
     }, [filtre]);
 
 
     useEffect(() => {
-        var categories : PartnerCategory [] = [];
-        var parteners : Partner [] = [];
+        // @ts-ignore
+        setFilter(JSON.parse(localStorage.getItem('filtres')));
+        var categories  : PartnerCategory [] = [];
+        var parteners   : Partner [] = [];
+
         let ins = new PartnerCategory({partnerCategoryID : 0, nameKeyPC : "  Tous  ", namePC : "categories"});
         categories.push(ins);
+
         di.partnerCategory.getPartnersCategries().then(data => {
             data.map(dt => {
-                let ins = new PartnerCategory({partnerCategoryID : dt.id,nameKeyPC : dt.nameKey, namePC : dt.name})
+                let ins = new PartnerCategory({
+                    partnerCategoryID : dt.id,
+                    nameKeyPC : dt.nameKey,
+                    namePC : dt.name
+                    })
                 categories.push(ins);
             })
             setCloades(true);
@@ -55,57 +83,52 @@ function App() {
 
         di.partner.getPartners().then(data => {
             data.map(dt => {
-                    let ins = new Partner({
-                        partnerID: dt.id,
-                        namePAR: dt.name,
-                        desc: dt.desc,
-                        logoUrlPAR: dt.logoUrl,
-                        mobileImageUrlPAR: dt.mobileImageUrl,
-                        imageUrlPAR: dt.imageUrl,
-                        urlPAR: dt.url,
-                        partnerCategories: dt.partnerCategories,
-                        backgroundUrlPAR : dt.backgroundUrl,
-                        })
+                let ins = new Partner({
+                    partnerID: dt.id,
+                    namePAR: dt.name,
+                    desc: dt.desc,
+                    logoUrlPAR: dt.logoUrl,
+                    mobileImageUrlPAR: dt.mobileImageUrl,
+                    imageUrlPAR: dt.imageUrl,
+                    urlPAR: dt.url,
+                    partnerCategories: dt.partnerCategories,
+                    backgroundUrlPAR : dt.backgroundUrl,
+                    })
                 parteners.push(ins);
             })
             setPloades(true);
             setPartners(parteners)
         })
-
     }, [])
 
-    const divStyle  = {
-        marginTop : "3vh"
-    }
+    const divStyle  = { marginTop : "3vh" }
 
     return (
-
-
-    <div className="App">
-        {   !Cloaded    ?
-            <PageHeader addFilter={(id: number) => {handleAdd(id);}}
-                        removeFilter={(id: number) => {handleRemove(id);}}
-                        loaded={true} categries={categries} />
-                    :
-            <PageHeader addFilter={(id: number) => {handleAdd(id);}}
-                        removeFilter={(id: number) => {handleRemove(id);}}
-                        loaded={false} categries={categries} />
-        }
-        <div>
-        {   !Ploaded    ?
-                <div className="loading">
-                    <img alt="loading" src={image}/>
+            <div className="App">
+                {   !Cloaded    ?
+                    <PageHeader addFilter={(id: number) => {handleAdd(id);}}
+                                removeFilter={(id: number) => {handleRemove(id);}}
+                                loaded={true} categries={categries} />
+                            :
+                    <PageHeader addFilter={(id: number) => {handleAdd(id);}}
+                                removeFilter={(id: number) => {handleRemove(id);}}
+                                loaded={false} categries={categries} />
+                }
+                <div>
+                {   !Ploaded    ?
+                        <div className="loading">
+                            <img alt="loading" src={image}/>
+                        </div>
+                                :
+                        <div className="row" style={divStyle} >
+                            {filtredPartners.map((partner, id) => (
+                                <Card key={partner.id} partner={partner}/>
+                                ))
+                            }
+                        </div>
+                }
                 </div>
-                        :
-                <div className="row" style={divStyle} >
-                    {partners.map((partner, id) => (
-                        <Card key={partner.id} partner={partner}/>
-                        ))
-                    }
-                </div>
-        }
-        </div>
-    </div>
-  );
+            </div>
+    );
 }
 export default App;

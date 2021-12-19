@@ -8,7 +8,7 @@ export interface IPartnerEntity {
   imageUrl: string;
   mobileImageUrl: string;
   url: string;
-  partnerCategories: IPartnerCategoryData;
+  partnerCategories: IPartnerCategoryData[];
   backgroundUrl : string;
 }
 
@@ -20,6 +20,6 @@ export interface IPartnerData {
   mobileImageUrlPAR: string;
   imageUrlPAR: string;
   urlPAR: string;
-  partnerCategories: IPartnerCategoryData;
+  partnerCategories: IPartnerCategoryData[];
   backgroundUrlPAR : string;
 }

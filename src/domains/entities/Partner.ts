@@ -5,6 +5,7 @@ import {
 import { IPartnerCategoryData } from "./interfaces/iPartnerCategory";
 
 class Partner implements IPartnerEntity {
+
   private readonly _id: number;
   private readonly _name: string;
   private readonly _desc: string;
@@ -12,7 +13,7 @@ class Partner implements IPartnerEntity {
   private readonly _imageUrl: string;
   private readonly _mobileImageUrl: string;
   private readonly _url: string;
-  private readonly _partnerCategories: IPartnerCategoryData;
+  private readonly _partnerCategories: IPartnerCategoryData [];
   private readonly _backgroundUrl : string;
 
   constructor(params: IPartnerData) {
@@ -25,6 +26,10 @@ class Partner implements IPartnerEntity {
     this._url = params.urlPAR;
     this._partnerCategories = params.partnerCategories;
     this._backgroundUrl = params.backgroundUrlPAR;
+  }
+
+  get partnerCategories(){
+    return this._partnerCategories ;
   }
 
   get id() {
@@ -55,13 +60,11 @@ class Partner implements IPartnerEntity {
     return this._url;
   }
 
-  get partnerCategories() {
-    return this._partnerCategories;
-  }
 
   get backgroundUrl(){
     return this._backgroundUrl;
   }
+
 }
 
 export default Partner;
