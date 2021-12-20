@@ -17,15 +17,14 @@ const Card = (props: {partner : Partner}) => {
         backgroundPosition : "center",
         backgroundRepeat : "no-repeat"
     }
-
+    const cardDetails = {
+        marginTop  : "1vw",
+        marginLeft : "1vw"
+    }
 
     function show( ){setShowParams(true)};
     function hide( ){setShowParams(false)};
 
-    const cardDetails = {
-        marginTop : "1vw",
-        marginLeft : "1vw"
-    }
     return (
 
         <div style={cardStyle} className={css.parent}>

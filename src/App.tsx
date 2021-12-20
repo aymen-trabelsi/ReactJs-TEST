@@ -13,6 +13,7 @@ function App() {
     const [partners, setPartners]                 = useState<Partner[]>([]);
     const [filtredPartners, setFiltredPartners]   = useState<Partner[]>([]);
     const [categries, setCategries]               = useState<PartnerCategory[]>([]);
+
     const [filtre, setFilter]   = useState<number[]>([0]);
     const [Ploaded, setPloades] = useState<boolean>(false);
     const [Cloaded, setCloades] = useState<boolean>(false);
@@ -20,9 +21,7 @@ function App() {
 
     function handleAdd (id : number) {
         if (id==0){
-            let newflt =  filtre.filter (element => {
-                return (element === id)
-            })
+            let newflt =  filtre.filter (element => { return (element === id)})
             newflt.push(id);
             setFilter(newflt);
             localStorage.setItem('filtres',  JSON.stringify(newflt));
@@ -31,9 +30,7 @@ function App() {
                 setFilter([id]);
                 localStorage.setItem('filtres',  JSON.stringify([id]));
             }else {
-                var newflt = filtre.filter(element => {
-                    return (element !== 0)
-                })
+                var newflt = filtre.filter(element => { return (element !== 0) })
                 newflt.push(id);
                 setFilter(newflt);
                 localStorage.setItem('filtres', JSON.stringify(newflt));
@@ -42,9 +39,8 @@ function App() {
     }
 
     function handleRemove (id : number) {
-        var newflt =  filtre.filter (element => {
-            return element != id
-        })
+        var newflt =  filtre.filter (element => { return element != id })
+        if(newflt.length === 0){ newflt.push(0) }
         setFilter(newflt);
         localStorage.setItem('filtres', JSON.stringify(newflt));
     }
@@ -111,7 +107,6 @@ function App() {
             })
             setPloades(true);
             setPartners(parteners);
-
             if(localStorage.getItem('filtres')){
                 let oldFilters: number[] = [];
                 // @ts-ignore
@@ -135,6 +130,8 @@ function App() {
                     setFilter(oldFilters);
                     setFiltredPartners(filtred);
                 }
+            }else {
+                setFiltredPartners(parteners);
             }
         })
     }, [])
@@ -167,13 +164,13 @@ function App() {
                             }
                         </div>
                 }
-                    {
-                        empty &&     <div className="notFound">
-                                        <span> Ooops...</span>
-                                        <br/> Aucun PARTENAIRE trouvé pour cette catégorie
-                                        <br/> Essayez-en un autre
-                                    </div>
-                    }
+                {
+                    empty &&     <div className="notFound">
+                                    <span> Ooops...</span>
+                                    <br/> Aucun PARTENAIRE trouvé pour cette catégorie
+                                    <br/> Essayez un autre
+                                </div>
+                }
                 </div>
             </div>
     );

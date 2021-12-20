@@ -7,6 +7,7 @@
       <change beforePath="$PROJECT_DIR$/src/components/card/_card.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/_card.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/card/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/card/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/filterCard/_filterCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/filterCard/_filterCard.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/filterCard/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/filterCard/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pageHeader/_pageHeader.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageHeader/_pageHeader.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pageHeader/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pageHeader/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.scss" afterDir="false" />
