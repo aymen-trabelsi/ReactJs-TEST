@@ -13,9 +13,10 @@ function App() {
     const [partners, setPartners]                 = useState<Partner[]>([]);
     const [filtredPartners, setFiltredPartners]   = useState<Partner[]>([]);
     const [categries, setCategries]               = useState<PartnerCategory[]>([]);
-    const [filtre, setFilter]   = useState<number[]>([]);
+    const [filtre, setFilter]   = useState<number[]>([0]);
     const [Ploaded, setPloades] = useState<boolean>(false);
     const [Cloaded, setCloades] = useState<boolean>(false);
+    const [empty, setEmpty]     = useState<boolean>(false);
 
     function handleAdd (id : number) {
         if (id==0){
@@ -27,7 +28,6 @@ function App() {
             localStorage.setItem('filtres',  JSON.stringify(newflt));
         }else {
             if(filtre[0] == 0 ){
-                console.log([id])
                 setFilter([id]);
                 localStorage.setItem('filtres',  JSON.stringify([id]));
             }else {
@@ -35,7 +35,6 @@ function App() {
                     return (element !== 0)
                 })
                 newflt.push(id);
-                console.log(newflt)
                 setFilter(newflt);
                 localStorage.setItem('filtres', JSON.stringify(newflt));
             }
@@ -51,6 +50,7 @@ function App() {
     }
 
     useEffect(() => {
+        setEmpty(false);
         if(filtre.length === 0){
                 setFiltredPartners(partners);
         }else {
@@ -66,11 +66,15 @@ function App() {
             })
             filtred = Array.from(new Set(filtred));
             setFiltredPartners(filtred)
+            if (filtred.length === 0){
+                setEmpty(true);
+            }
         }
     }, [filtre]);
 
 
     useEffect(() => {
+        setEmpty(false)
         var categories  : PartnerCategory [] = [];
         var parteners   : Partner [] = [];
 
@@ -132,14 +136,13 @@ function App() {
                     setFiltredPartners(filtred);
                 }
             }
-            setFiltredPartners(parteners);
         })
     }, [])
 
     const divStyle  = { marginTop : "3vh" }
 
     return (
-            <div className="App">
+            <div>
                 {   !Cloaded    ?
                     <PageHeader addFilter={(id: number) => {handleAdd(id);}}
                                 removeFilter={(id: number) => {handleRemove(id);}}
@@ -151,7 +154,7 @@ function App() {
                                 loaded={false} categries={categries}
                                 filters={filtre} />
                 }
-                <div>
+                <div  className="App">
                 {   !Ploaded    ?
                         <div className="loading">
                             <img alt="loading" src={image}/>
@@ -159,11 +162,18 @@ function App() {
                                 :
                         <div className="row" style={divStyle} >
                             {filtredPartners.map((partner, id) => (
-                                <Card key={partner.id} partner={partner}/>
+                                    <Card key={partner.id} partner={partner}/>
                                 ))
                             }
                         </div>
                 }
+                    {
+                        empty &&     <div className="notFound">
+                                        <span> Ooops...</span>
+                                        <br/> Aucun PARTENAIRE trouvé pour cette catégorie
+                                        <br/> Essayez-en un autre
+                                    </div>
+                    }
                 </div>
             </div>
     );

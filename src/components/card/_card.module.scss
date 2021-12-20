@@ -15,11 +15,11 @@
   background-color: #e22b76;
   border: none;
   color: white;
-  padding: 7px 32px;
+  padding: 0.7vw 3vw;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 1vw;
   margin: 4px 2px;
   cursor: pointer;
   float: left;
@@ -35,10 +35,11 @@
 }
 
 .card:hover{
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .initialCard {
+  background: rgba(0, 0, 0, 0.3);
   height: 100%;
   width: 100%;
   position: absolute;
@@ -53,9 +54,10 @@
 }
 
 .smallLogoStyle   {
-  margin : auto;
-  width : 7vw;
-  height : 8vh;
+  width : 6.5vw;
+  height : 3vw;
+  margin-top : 4vw;
+  margin-left : 1.5vw;
 }
 .logoStyle   {
   margin-top: 3vw;

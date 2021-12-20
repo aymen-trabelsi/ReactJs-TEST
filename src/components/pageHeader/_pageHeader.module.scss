@@ -1,13 +1,12 @@
 @import "/src/styles/variables";
 
 .pageHeader {
-  margin : auto;
-  width: 100%;
+  margin-left : 16vw;
+  width: 66.5vw;
   box-shadow: rgb(0 0 0 / 20%) 0 0 20px;
-  border-radius: 2vh;
+  border-radius:  0 0 2vh 2vh;
   background-color: white;
   color: black;
-  height:  12vw;
   display: flex;
   align-items: center;
   justify-content: center;

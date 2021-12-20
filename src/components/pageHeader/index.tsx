@@ -11,22 +11,21 @@ const PageHeader = (props: { addFilter : Function;
                              categries: PartnerCategory[];
                              filters : number[]; }) => {
     return (
-      <div className={css.pageHeader}>
-          {props.loaded ?
-            <img alt="loading" src={image} />
-          :
-              <div className="flex-container">
-                { props.categries.map((categrie) => (
-                      <div className="flex-item" key={categrie.nameKey}>
-                          <FilterCard addToFilter={(id: number) => {props.addFilter(id);}}
-                                      removeFromFilter={(id: number) => {props.removeFilter(id);}}
-                                      id={categrie.id} text={categrie.name}
-                                      filters={props.filters}/>
-                      </div>
-                      )
-                  )
-                }
-              </div>
+        <div className={css.pageHeader}>
+            {   props.loaded ?
+                                <img alt="loading" src={image} />
+                             :
+                              <div className="flex-container">
+                                  { props.categries.map((categrie) => (
+                                          <div className="flex-item" key={categrie.nameKey}>
+                                              <FilterCard addToFilter={(id: number) => {props.addFilter(id);}}
+                                                          removeFromFilter={(id: number) => {props.removeFilter(id);}}
+                                                          id={categrie.id} text={categrie.name}
+                                                          filters={props.filters}/>
+                                          </div>
+                                      )
+                                  )}
+                            </div>
           }
       </div>
     );
