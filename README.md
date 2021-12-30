@@ -15,5 +15,5 @@ npm install
 ```
 
 ```bash
-npm audit fix
+npm audit fix --force
 ```
